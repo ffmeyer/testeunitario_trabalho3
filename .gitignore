@@ -3,7 +3,7 @@
 
 ## Directory-based project format:
 .idea/
-
+*.whl
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/

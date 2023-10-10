@@ -1,12 +1,11 @@
-import pytest
 from src.models.restaurant import Restaurant
 
 
 def test_describe_restaurant():
     rest = Restaurant('outback', 'australiana')
     # deveria ser restaurante certo ?
-    expected_result = '''Esse restaurante chama Outback and serve comida australiana.
-        "Esse restaurante está servindo 0 consumidores desde que está aberto.'''
+    expected_result = """Esse restaurante chama Outback and serve comida australiana.
+        "Esse restaurante está servindo 0 consumidores desde que está aberto."""
 
     actual_result = rest.describe_restaurant()
     assert actual_result == expected_result
@@ -21,7 +20,7 @@ def test_open_restaurant():
 
 def test_open_restaurant_twice():
     rest = Restaurant('outback', 'australiana')
-    expected_result = "Outback já está aberto!"
+    expected_result = 'Outback já está aberto!'
     rest.open_restaurant()
     rest.open_restaurant()
     actual_result = rest.open_restaurant()
@@ -38,7 +37,7 @@ def test_close_restaurant():
 
 def test_close_restaurant_twice():
     rest = Restaurant('outback', 'australiana')
-    expected_result = "Outback já está fechado!"
+    expected_result = 'Outback já está fechado!'
     rest.open_restaurant()
     rest.close_restaurant()
     actual_result = rest.close_restaurant()
@@ -55,7 +54,7 @@ def test_set_number_served():
 
 def test_set_number_served_with_restaurant_closed():
     rest = Restaurant('outback', 'australiana')
-    expected_result = "Outback já está fechado!"
+    expected_result = 'Outback já está fechado!'
     rest.open_restaurant()
     rest.close_restaurant()
     actual_result = rest.set_number_served(10)
@@ -73,7 +72,7 @@ def test_increment_number_served():
 
 def test_increment_number_with_restaurant_closed():
     rest = Restaurant('outback', 'australiana')
-    expected_result = "Outback já está fechado!"
+    expected_result = 'Outback já está fechado!'
     rest.open_restaurant()
     rest.close_restaurant()
     actual_result = rest.increment_number_served(20)
