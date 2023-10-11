@@ -8,8 +8,16 @@ class TestIceCreamStand:
         msg_esperada = (
             'No momento temos os seguintes sabores de sorvete disponíveis:'
         )
-        actual_result, actual_msg = baccio_de_latte.flavors_available()
+        actual_result = baccio_de_latte.flavors_available()
         assert actual_result == sabores
+
+    def test_label_flavors_available(self):
+        sabores = ['Chocolate', 'Pistache', 'Flocos', 'Tapioca']
+        baccio_de_latte = IceCreamStand('Baccio de latte', 'Italiana', sabores)
+        msg_esperada = (
+            'No momento temos os seguintes sabores de sorvete disponíveis:'
+        )
+        actual_msg = baccio_de_latte.label_flavors_available()
         assert actual_msg == msg_esperada
 
     def test_flavors_available_empty_list(self):
@@ -55,7 +63,7 @@ class TestIceCreamStand:
         sabores = ['Chocolate', 'Pistache', 'Flocos', 'Tapioca']
         baccio_de_latte = IceCreamStand('Baccio de latte', 'Italiana', sabores)
         baccio_de_latte.add_flavor(new_flavor)
-        actual_result, msg = baccio_de_latte.flavors_available()
+        actual_result = baccio_de_latte.flavors_available()
         expected_result = [
             'Chocolate',
             'Pistache',
@@ -70,7 +78,7 @@ class TestIceCreamStand:
         sabores = []
         baccio_de_latte = IceCreamStand('Baccio de latte', 'Italiana', sabores)
         baccio_de_latte.add_flavor(new_flavor)
-        actual_result, msg = baccio_de_latte.flavors_available()
+        actual_result = baccio_de_latte.flavors_available()
         expected_result = [new_flavor]
         assert actual_result == expected_result
 

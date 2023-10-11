@@ -12,13 +12,19 @@ class IceCreamStand(Restaurant):
         super().__init__(restaurant_name, cuisine_type)
         self.flavors = flavors_list
 
+    def label_flavors_available(self):
+        """
+        preferi remover o cabeçalho da funcao flavors_available, para ser usado e testado separadamente.
+        """
+        return 'No momento temos os seguintes sabores de sorvete disponíveis:'
+
     def flavors_available(self):
-        """Percorra a lista de sabores disponíveis e imprima."""
+        """
+        Percorra a lista de sabores disponíveis e imprima.
+
+        """
         if self.flavors:
-            msg = (
-                'No momento temos os seguintes sabores de sorvete disponíveis:'
-            )
-            return self.flavors, msg
+            return self.flavors
         else:
             return 'Estamos sem estoque atualmente!'
 
